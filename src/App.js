@@ -1,10 +1,13 @@
 import { Typography } from "@mui/material";
 import "./App.css";
+import MainLayout from "./layout/MainLayout";
 
 function App() {
   return (
     <div className="App">
-      <Typography variant="h1">Hello World</Typography>
+      <MainLayout>
+        <Typography variant="h1">Hello World</Typography>
+      </MainLayout>
     </div>
   );
 }

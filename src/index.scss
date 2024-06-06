@@ -7,7 +7,7 @@
 a {
   color: unset;
   font-weight: unset;
+  &.plain {
+    text-decoration: unset;
+  }
 }
-a.plain {
-  text-decoration: unset;
-}/*# sourceMappingURL=index.css.map */

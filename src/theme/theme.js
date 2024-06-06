@@ -30,7 +30,7 @@ export const theme = createTheme({
       med: "#D2DCEA",
     },
     text: {
-      primary: "#004693",
+      primary: "#000000",
       secondary: colors.grey[600],
       disabled: colors.grey[600],
     },
