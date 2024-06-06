@@ -1,11 +1,4 @@
-import {
-  Box,
-  Container,
-  Grid,
-  IconButton,
-  Stack,
-  Typography,
-} from "@mui/material";
+import { Box, Container, IconButton, Stack, Typography } from "@mui/material";
 
 // Icons Imports
 import MenuIcon from "@mui/icons-material/Menu";
@@ -85,7 +78,7 @@ function BrandNav() {
           >
             <IconWithLabel
               icon={<LocalPhoneIcon sx={{ fontSize: 26 }} />}
-              label={"Cart"}
+              label={"Contact Us"}
             />
             <IconWithLabel
               icon={<ShoppingCartIcon sx={{ fontSize: 26 }} />}
