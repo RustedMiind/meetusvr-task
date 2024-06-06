@@ -5,10 +5,10 @@ import "./Mui_Custom.scss";
 export const theme = createTheme({
   palette: {
     primary: {
-      main: "#FFF200",
+      main: "#542E90",
     },
     secondary: {
-      main: "#542E90",
+      main: "#FFF200",
     },
     success: {
       main: "#18CB5F",
