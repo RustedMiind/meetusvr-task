@@ -1,5 +1,5 @@
 import { Typography } from "@mui/material";
-import "./App.css";
+import "./App.scss";
 import MainLayout from "./layout/MainLayout";
 
 function App() {
