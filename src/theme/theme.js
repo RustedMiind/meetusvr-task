@@ -48,6 +48,9 @@ export const theme = createTheme({
       defaultProps: {
         disableElevation: true,
       },
+      styleOverrides: {
+        root: { textTransform: "none" },
+      },
     },
     MuiPaper: {
       defaultProps: { elevation: 0 },
