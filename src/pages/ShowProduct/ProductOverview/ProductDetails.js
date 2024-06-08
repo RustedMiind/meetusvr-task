@@ -14,7 +14,11 @@ import CircularButton from "../../../components/CIrcularButton";
 import NumberInputWithControls from "../../../components/NumberInputWithControls";
 import AddToCart from "./AddToCart";
 
-const ColorItem = ({ selected }) => (
+// Dummy Images
+import color1 from "../../../assets/products/Group 356@2x.png";
+import color2 from "../../../assets/products/Group 354@2x.png";
+
+const ColorItem = ({ selected, image }) => (
   <Avatar
     sx={{
       width: 60,
@@ -22,7 +26,7 @@ const ColorItem = ({ selected }) => (
       border: `2px solid transparent`,
       borderColor: selected ? "primary.main" : undefined,
     }}
-    src="https://c8.alamy.com/comp/DMWB42/a-handsome-black-man-african-american-male-model-dressed-in-an-all-DMWB42.jpg"
+    src={image}
   />
 );
 
@@ -101,9 +105,8 @@ function ProductDetails({ product }) {
           Color
         </Typography>
         <Stack direction={"row"} gap={1}>
-          <ColorItem />
-          <ColorItem selected />
-          <ColorItem />
+          <ColorItem image={color1} />
+          <ColorItem image={color2} selected />
         </Stack>
       </Box>
 
