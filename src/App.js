@@ -5,6 +5,7 @@ import Filters from "./layout/MainLayout/Filters";
 import BreadCrumbs from "./layout/MainLayout/Breadcrumbs";
 import ShowProductPage from "./pages/ShowProduct";
 import CartDrawer from "./components/CartDrawer";
+import "swiper/css/bundle";
 
 function App() {
   return (
