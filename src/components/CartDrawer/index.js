@@ -17,14 +17,14 @@ import CartItemCard from "./CartItemCard";
 function CartDrawer() {
   return (
     <CartContext.Consumer>
-      {({ opened, close, items, removeItem }) => {
+      {(value) => {
         let total = 0;
-        items.forEach((item) => {
-          items += item.count * item.price;
+        value.items?.forEach((item) => {
+          value.items.items += item.count * item.price;
         });
-
+        console.log("from consumer", value, value.items, typeof items);
         return (
-          <Drawer anchor={"right"} open={opened} onClose={close}>
+          <Drawer anchor={"right"} open={value.opened} onClose={value.close}>
             <Stack spacing={2} py={4} px={2} width={450} maxWidth={"100vw"}>
               <Typography
                 variant="h5"
@@ -38,15 +38,15 @@ function CartDrawer() {
                 <Typography variant={"h6"} fontWeight={700} mb={3}>
                   Cart Summary
                 </Typography>
-                {!Boolean(items.length) && (
+                {!Boolean(value.items?.length) && (
                   <Typography>Your Cart Is Empty!</Typography>
                 )}
                 <Stack spacing={2}>
-                  {items?.map((item) => (
+                  {value.items?.map((item) => (
                     <CartItemCard
                       key={item.name}
                       item={item}
-                      remove={() => removeItem(item.name)}
+                      remove={() => value.removeItem(item.name)}
                     />
                   ))}
                 </Stack>

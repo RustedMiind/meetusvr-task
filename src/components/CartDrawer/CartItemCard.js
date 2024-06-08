@@ -44,7 +44,7 @@ function CartItemCard({ item, remove }) {
                 variant="contained"
                 color="secondary"
                 sx={{ borderRadius: 100 }}
-                onClick={remove}
+                onClick={() => remove()}
               >
                 Remove
               </Button>

@@ -12,6 +12,7 @@ import {
 import productLogo from "../../../assets/product-logo.png";
 import CircularButton from "../../../components/CIrcularButton";
 import NumberInputWithControls from "../../../components/NumberInputWithControls";
+import AddToCart from "./AddToCart";
 
 const ColorItem = ({ selected }) => (
   <Avatar
@@ -25,19 +26,13 @@ const ColorItem = ({ selected }) => (
   />
 );
 
-const buttonStyles = {
-  borderRadius: 1000,
-  fontWeight: 700,
-};
-
-function ProductDetails() {
+function ProductDetails({ product }) {
   return (
     <Stack spacing={3}>
       <img src={productLogo} alt="product-logo" width={68} />
       <Box>
         <Typography variant="h6" fontWeight={700} gutterBottom>
-          Adidas black t-shirt lorem ipsum dolor sit amet, consectetuer
-          adipiscing elit.
+          {product.name}
         </Typography>
         <Typography
           variant="h6"
@@ -67,14 +62,14 @@ function ProductDetails() {
       </Stack>
       <Stack direction="row" gap={2} alignItems={"center"}>
         <Typography variant="h5" fontWeight={700} color={"primary.main"}>
-          8,888 <span style={{ fontSize: "0.7em" }}>L.E.</span>
+          {product.price} <span style={{ fontSize: "0.7em" }}>L.E.</span>
         </Typography>
         <Typography
           fontWeight={700}
           color={"text.disabled"}
           sx={{ textDecoration: "line-through" }}
         >
-          9,999 L.E.
+          {product.priceBefore} L.E.
         </Typography>
         <Chip
           label="11% Off"
@@ -114,41 +109,7 @@ function ProductDetails() {
 
       <Divider />
 
-      <Box>
-        <Typography variant="h6" fontWeight={700} gutterBottom>
-          Quantity
-        </Typography>
-        <Box>
-          <Grid container spacing={2}>
-            <Grid item xs={12} md={6}>
-              <NumberInputWithControls value={2} />
-            </Grid>
-            <Grid item xs={12} md={6} />
-            <Grid item xs={12} md={6}>
-              <Button
-                variant="contained"
-                color="primary"
-                size="large"
-                sx={buttonStyles}
-                fullWidth
-              >
-                Add To Cart
-              </Button>
-            </Grid>
-            <Grid item xs={12} md={6}>
-              <Button
-                variant="contained"
-                color="secondary"
-                size="large"
-                sx={buttonStyles}
-                fullWidth
-              >
-                Pickup From Store
-              </Button>
-            </Grid>
-          </Grid>
-        </Box>
-      </Box>
+      <AddToCart item={product} />
     </Stack>
   );
 }

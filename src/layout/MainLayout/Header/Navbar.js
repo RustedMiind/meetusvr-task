@@ -37,7 +37,7 @@ function Navbar() {
     <CartContext.Consumer>
       {({ items, open, opened }) => {
         let totalCount = 0;
-        items.forEach((item) => (totalCount += item.count));
+        items?.forEach((item) => (totalCount += item.count));
         return (
           <Box component="nav" py={1}>
             <Container maxWidth="lg">
@@ -84,7 +84,7 @@ function Navbar() {
                         </Badge>
                       }
                       label="Cart"
-                      onClick={open}
+                      onClick={() => open()}
                     />
                     <IconWithLabel
                       icon={<FavoriteBorderIcon sx={{ fontSize: 26 }} />}

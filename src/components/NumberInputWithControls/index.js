@@ -44,10 +44,10 @@ function NumberInputWithControls(props) {
           },
         })}
       >
-        <IconButton size="small" onClick={props.onDecrement}>
+        <IconButton size="small" onClick={() => props.onDecrement()}>
           <RemoveIcon />
         </IconButton>
-        <IconButton size="small" onClick={props.onIncrement}>
+        <IconButton size="small" onClick={() => props.onIncrement()}>
           <AddIcon />
         </IconButton>
       </Box>

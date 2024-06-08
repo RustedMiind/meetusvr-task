@@ -5,15 +5,15 @@ import ProductDetails from "./ProductDetails";
 
 const GridItem = (props) => <Grid item xs={12} md={6} {...props} />;
 
-function ProductOverview() {
+function ProductOverview({ product }) {
   return (
     <Box>
       <Grid container spacing={8}>
         <GridItem>
-          <ProductImages />
+          <ProductImages product={product} />
         </GridItem>
         <GridItem>
-          <ProductDetails />
+          <ProductDetails product={product} />
         </GridItem>
       </Grid>
     </Box>

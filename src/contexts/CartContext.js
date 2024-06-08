@@ -6,24 +6,26 @@ class CartContextProvider extends Component {
   state = { items: [], opened: false };
   addItem = (name, count = 1, price, image) => {
     const exists = Boolean(this.state.items.find((item) => item.name === name));
-    if (exists)
+    if (exists) {
       this.setState({
-        items: this.state.map((item) => {
+        items: this.state.items.map((item) => {
           if (item.name === name && item.count + count > 0)
             return { ...item, count: count + item.count };
           return item;
         }),
       });
+      return;
+    }
     if (count < 1) return;
-    else
-      this.setState({
-        items: [...this.state.items, { name, count, price, image }],
-      });
+
+    this.setState({
+      items: [...this.state.items, { name, count, price, image }],
+    });
   };
 
   removeItem = (name) => {
     this.setState({
-      items: this.state.filter((item) => item.name !== name),
+      items: this.state.items.filter((item) => item.name !== name),
     });
   };
 

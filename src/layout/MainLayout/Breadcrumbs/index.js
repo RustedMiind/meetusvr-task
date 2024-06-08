@@ -14,7 +14,11 @@ export default function BreadCrumbs() {
   return (
     <>
       <Divider />
-      <Container component="div" role="presentation" onClick={handleClick}>
+      <Container
+        component="div"
+        role="presentation"
+        onClick={() => handleClick()}
+      >
         <MuiBreadcrumbs
           aria-label="breadcrumb"
           sx={{
