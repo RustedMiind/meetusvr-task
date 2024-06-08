@@ -1,12 +1,19 @@
-import { Typography } from "@mui/material";
+import { Container, Typography } from "@mui/material";
 import "./App.scss";
 import MainLayout from "./layout/MainLayout";
+import Filters from "./layout/MainLayout/Filters";
+import BreadCrumbs from "./layout/MainLayout/Breadcrumbs";
+import ShowProductPage from "./pages/ShowProduct";
 
 function App() {
   return (
     <div className="App">
       <MainLayout>
-        <Typography variant="h1">Hello World</Typography>
+        <Filters />
+        <BreadCrumbs />
+        <Container component="main" sx={{ py: 4 }}>
+          <ShowProductPage />
+        </Container>
       </MainLayout>
     </div>
   );

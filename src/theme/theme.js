@@ -39,7 +39,7 @@ export const theme = createTheme({
     MuiTypography: {
       styleOverrides: {
         root: {
-          fontFamily: ['"Montserrat"', "sans-serif"],
+          fontFamily: ["'Montserrat'", "sans-serif"],
         },
       },
     },
