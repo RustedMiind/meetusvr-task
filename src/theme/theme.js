@@ -40,6 +40,7 @@ export const theme = createTheme({
       styleOverrides: {
         root: {
           fontFamily: ["'Montserrat'", "sans-serif"],
+          lineHeight: "1.15em",
         },
       },
     },
