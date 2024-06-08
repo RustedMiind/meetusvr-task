@@ -7,6 +7,7 @@ import {
   Chip,
   Avatar,
   Button,
+  Grid,
 } from "@mui/material";
 import productLogo from "../../../assets/product-logo.png";
 import CircularButton from "../../../components/CIrcularButton";
@@ -23,6 +24,11 @@ const ColorItem = ({ selected }) => (
     src="https://c8.alamy.com/comp/DMWB42/a-handsome-black-man-african-american-male-model-dressed-in-an-all-DMWB42.jpg"
   />
 );
+
+const buttonStyles = {
+  borderRadius: 1000,
+  fontWeight: 700,
+};
 
 function ProductDetails() {
   return (
@@ -106,13 +112,42 @@ function ProductDetails() {
         </Stack>
       </Box>
 
+      <Divider />
+
       <Box>
         <Typography variant="h6" fontWeight={700} gutterBottom>
           Quantity
         </Typography>
-        <Stack direction={"row"} gap={1}>
-          <NumberInputWithControls value={2} />
-        </Stack>
+        <Box>
+          <Grid container spacing={2}>
+            <Grid item xs={12} md={6}>
+              <NumberInputWithControls value={2} />
+            </Grid>
+            <Grid item xs={12} md={6} />
+            <Grid item xs={12} md={6}>
+              <Button
+                variant="contained"
+                color="primary"
+                size="large"
+                sx={buttonStyles}
+                fullWidth
+              >
+                Add To Cart
+              </Button>
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <Button
+                variant="contained"
+                color="secondary"
+                size="large"
+                sx={buttonStyles}
+                fullWidth
+              >
+                Pickup From Store
+              </Button>
+            </Grid>
+          </Grid>
+        </Box>
       </Box>
     </Stack>
   );
