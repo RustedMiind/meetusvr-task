@@ -1,12 +1,4 @@
-import {
-  Card,
-  Paper,
-  Grid,
-  Box,
-  Stack,
-  Typography,
-  Button,
-} from "@mui/material";
+import { Paper, Grid, Box, Stack, Typography, Button } from "@mui/material";
 import AspectRatio from "../AspectRatio";
 
 function CartItemCard({ item, remove }) {

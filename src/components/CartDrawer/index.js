@@ -20,7 +20,7 @@ function CartDrawer() {
       {(value) => {
         let total = 0;
         value.items?.forEach((item) => {
-          value.items.items += item.count * item.price;
+          total += item.count * item.price;
         });
         console.log("from consumer", value, value.items, typeof items);
         return (
