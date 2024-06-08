@@ -14,8 +14,9 @@ import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import PermIdentityIcon from "@mui/icons-material/PermIdentity";
 import productLogo from "../../../assets/product-logo.png";
+import { CartContext } from "../../../contexts/CartContext";
 
-const IconWithLabel = ({ icon, label, href }) => (
+const IconWithLabel = ({ icon, label, href, ...props }) => (
   <Stack
     component={Button}
     size="small"
@@ -24,6 +25,7 @@ const IconWithLabel = ({ icon, label, href }) => (
     direction="row"
     className="plain"
     sx={{ color: "text.primary" }}
+    {...props}
   >
     {icon}
     <Typography fontWeight={700}>{label}</Typography>
@@ -32,61 +34,74 @@ const IconWithLabel = ({ icon, label, href }) => (
 
 function Navbar() {
   return (
-    <Box component="nav" py={1}>
-      <Container maxWidth="lg">
-        <Grid container spacing={1} alignItems={"center"}>
-          <Grid
-            item
-            xs={0}
-            md={4.5}
-            display={{ xs: "none", lg: "block" }}
-            flexGrow={{ xs: 1, md: 0 }}
-          >
-            <TextField
-              size="small"
-              sx={{ ".MuiInputBase-root": { borderRadius: 100 } }}
-              placeholder="Search"
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <SearchIcon />
-                  </InputAdornment>
-                ),
-              }}
-            />
-          </Grid>
-          <Grid
-            item
-            xs={0}
-            md={3}
-            display={"flex"}
-            justifyContent={{ xs: "unset", lg: "center" }}
-          >
-            <img src={productLogo} alt="adidas" height={56} />
-          </Grid>
-          <Grid item lg={4.5} flexGrow={1}>
-            <Stack spacing={3} direction="row" justifyContent="end">
-              <IconWithLabel
-                icon={
-                  <Badge badgeContent={4} color="secondary">
-                    <ShoppingBasketIcon sx={{ fontSize: 26 }} />
-                  </Badge>
-                }
-                label="Cart"
-              />
-              <IconWithLabel
-                icon={<FavoriteBorderIcon sx={{ fontSize: 26 }} />}
-                label="Wishlist"
-              />
-              <IconWithLabel
-                icon={<PermIdentityIcon sx={{ fontSize: 26 }} />}
-                label="Login"
-              />
-            </Stack>
-          </Grid>
-        </Grid>
-      </Container>
-    </Box>
+    <CartContext.Consumer>
+      {({ items, open, opened }) => {
+        let totalCount = 0;
+        items.forEach((item) => (totalCount += item.count));
+        return (
+          <Box component="nav" py={1}>
+            <Container maxWidth="lg">
+              <Grid container spacing={1} alignItems={"center"}>
+                <Grid
+                  item
+                  xs={0}
+                  md={4.5}
+                  display={{ xs: "none", lg: "block" }}
+                  flexGrow={{ xs: 1, md: 0 }}
+                >
+                  <TextField
+                    size="small"
+                    sx={{ ".MuiInputBase-root": { borderRadius: 100 } }}
+                    placeholder="Search"
+                    InputProps={{
+                      startAdornment: (
+                        <InputAdornment position="start">
+                          <SearchIcon />
+                        </InputAdornment>
+                      ),
+                    }}
+                  />
+                </Grid>
+                <Grid
+                  item
+                  xs={0}
+                  md={3}
+                  display={"flex"}
+                  justifyContent={{ xs: "unset", lg: "center" }}
+                >
+                  <img src={productLogo} alt="adidas" height={56} />
+                </Grid>
+                <Grid item lg={4.5} flexGrow={1}>
+                  <Stack spacing={3} direction="row" justifyContent="end">
+                    <IconWithLabel
+                      icon={
+                        <Badge
+                          badgeContent={totalCount}
+                          showZero
+                          color="secondary"
+                        >
+                          <ShoppingBasketIcon sx={{ fontSize: 26 }} />
+                        </Badge>
+                      }
+                      label="Cart"
+                      onClick={open}
+                    />
+                    <IconWithLabel
+                      icon={<FavoriteBorderIcon sx={{ fontSize: 26 }} />}
+                      label="Wishlist"
+                    />
+                    <IconWithLabel
+                      icon={<PermIdentityIcon sx={{ fontSize: 26 }} />}
+                      label="Login"
+                    />
+                  </Stack>
+                </Grid>
+              </Grid>
+            </Container>
+          </Box>
+        );
+      }}
+    </CartContext.Consumer>
   );
 }
 

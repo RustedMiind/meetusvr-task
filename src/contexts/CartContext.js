@@ -1,10 +1,10 @@
 import { createContext, Component } from "react";
 
-const CartContext = createContext();
+export const CartContext = createContext();
 
 class CartContextProvider extends Component {
   state = { items: [], opened: false };
-  addItem(name, count = 1, price, image) {
+  addItem = (name, count = 1, price, image) => {
     const exists = Boolean(this.state.items.find((item) => item.name === name));
     if (exists)
       this.setState({
@@ -19,20 +19,20 @@ class CartContextProvider extends Component {
       this.setState({
         items: [...this.state.items, { name, count, price, image }],
       });
-  }
+  };
 
-  removeItem(name) {
+  removeItem = (name) => {
     this.setState({
       items: this.state.filter((item) => item.name !== name),
     });
-  }
+  };
 
-  openCart() {
+  openCart = () => {
     this.setState({ opened: true });
-  }
-  closeCart() {
+  };
+  closeCart = () => {
     this.setState({ opened: false });
-  }
+  };
 
   render() {
     return (

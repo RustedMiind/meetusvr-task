@@ -1,6 +1,7 @@
 import { theme } from "../../theme/theme";
 import { ThemeProvider, Grow } from "@mui/material";
 import { SnackbarProvider } from "notistack";
+import CartContextProvider from "../../contexts/CartContext";
 
 function Providers({ children }) {
   return (
@@ -12,7 +13,7 @@ function Providers({ children }) {
         variant="success"
         autoHideDuration={10000}
       >
-        {children}
+        <CartContextProvider>{children}</CartContextProvider>
       </SnackbarProvider>
     </ThemeProvider>
   );
